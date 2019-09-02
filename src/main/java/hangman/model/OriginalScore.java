@@ -18,7 +18,7 @@ package hangman.model;
 public class OriginalScore implements GameScore{
 	private int score;		
 	public OriginalScore(){
-		score = 0;	
+		score = 100;	
 	}
 
 	/**

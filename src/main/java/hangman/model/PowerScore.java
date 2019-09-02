@@ -17,7 +17,7 @@ package hangman.model;
 
 public class PowerScore implements GameScore{
 	private int score;		
-	public OriginalScore(){
+	public PowerScore(){
 		score = 0;	
 	}
 
@@ -30,6 +30,6 @@ public class PowerScore implements GameScore{
 	*@throws 
 	*/
 	public int calculateScore(int correctCount, int  incorrectCount){
-		return score;
+            return score;
 	}
 }

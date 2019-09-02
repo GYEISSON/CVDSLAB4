@@ -1,7 +1,10 @@
-package hangman;
+package hangmanTest;
 
+
+import org.junit.Assert;
 import org.junit.Test;
 
+import hangman.model.*;
 /**
  * Unit test for simple hangman .
  *
@@ -37,7 +40,9 @@ public class GameScoreTest
 	@Test
 	public void OriginalScoreTest()
 	{
-		assertTrue( true );
+            GameScore score =  new OriginalScore();
+            int res = score.calculateScore(5,2);
+            Assert.assertEquals( 80 ,res );
 	}
 
 
@@ -54,7 +59,9 @@ public class GameScoreTest
 	@Test
 	public void BonusScoreTest()
 	{
-		assertTrue( true );
+            GameScore score =  new BonusScore();
+            int res = score.calculateScore(5,2);
+            Assert.assertEquals( 40 ,res );
 	}
 
 	/**
@@ -71,6 +78,8 @@ public class GameScoreTest
 	@Test
 	public void PowerScoreTest()
 	{
-		assertTrue( true );
+            GameScore score =  new PowerScore();
+            int res = score.calculateScore(5,2);
+            Assert.assertEquals( 500 ,res );
 	}
 }
