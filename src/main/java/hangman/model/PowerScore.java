@@ -30,6 +30,12 @@ public class PowerScore implements GameScore{
 	*@throws 
 	*/
 	public int calculateScore(int correctCount, int  incorrectCount){
-            return score;
+		for(int i=1 ; i<=correctCount ; i++){
+			score +=  Math.pow(5, i);
+		}
+		score -= incorrectCount*8;
+        if(score < 0) score = 0;
+        if(score > 500) score = 500;
+        return score;
 	}
 }

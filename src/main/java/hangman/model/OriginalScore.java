@@ -30,6 +30,8 @@ public class OriginalScore implements GameScore{
 	*@throws 
 	*/
 	public int calculateScore(int correctCount, int  incorrectCount){
+		score -= incorrectCount*10;
+        if(score < 0) score = 0;
 		return score;
 	}
 }
