@@ -16,15 +16,16 @@ import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
+import hangman.setup.factoryMethod.HangmanFactoryMethod;
+import hangman.setup.factoryMethod.HangmanDefaultFactoryMethod;
 
 public class GameModel {
     private int incorrectCount;
     private int correctCount;
     private LocalDateTime dateTime;
-    private int gameScore;
+    private GameScore gameScore;
     private int[] lettersUsed;
-    
+    private HangmanFactoryMethod factoryMethod;
     
     private HangmanDictionary dictionary;
     
@@ -41,7 +42,9 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        factoryMethod = new HangmanDefaultFactoryMethod();
+        gameScore = factoryMethod.createOriginalScore();
+        System.out.println(gameScore.getScore());
         
     }
     
@@ -52,7 +55,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = factoryMethod.createOriginalScore();
     }
 
     //setDateTime
@@ -74,10 +77,10 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            gameScore -= 10;
         } else {
             correctCount += positions.size();
         }
+        gameScore.calculateScore(correctCount,incorrectCount);
         return positions;
         
     }
@@ -88,17 +91,18 @@ public class GameModel {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM-dd-uuuu hh:mm:ss a");
         return dtf.format(dateTime);
     }
-
+    /*
     //setScore
     //purpose: sets score value to points
     public void setScore(int score) {
         this.gameScore = score;
     }
+    */
     
     //getScore
     //purpose: returns current score value
     public int getScore() {
-        return gameScore;
+        return gameScore.getScore();
     }
 
     //name: selectRandomWord()
@@ -124,14 +128,15 @@ public class GameModel {
     //method: getGameScore
     //purpose: return current score
     public int getGameScore() {
-        return gameScore;
+        return gameScore.getScore();
     }
-
+    /*
     //method: setGameScore
     //purpose: set current game score
     public void setGameScore(int gameScore) {
         this.gameScore = gameScore;
     }
+    */
     
     //method: getWordLength
     //purpose: return length of current word

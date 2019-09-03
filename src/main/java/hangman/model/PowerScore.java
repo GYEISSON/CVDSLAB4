@@ -29,6 +29,7 @@ public class PowerScore implements GameScore{
 	*@return score  	
 	*@throws 
 	*/
+        @Override
 	public int calculateScore(int correctCount, int  incorrectCount){
 		for(int i=1 ; i<=correctCount ; i++){
 			score +=  Math.pow(5, i);
@@ -38,4 +39,8 @@ public class PowerScore implements GameScore{
         if(score > 500) score = 500;
         return score;
 	}
+        @Override
+        public int getScore(){
+            return this.score;
+        }
 }

@@ -29,9 +29,14 @@ public class OriginalScore implements GameScore{
 	*@return score  	
 	*@throws 
 	*/
-	public int calculateScore(int correctCount, int  incorrectCount){
-		score -= incorrectCount*10;
-        if(score < 0) score = 0;
-		return score;
+	@Override
+        public int calculateScore(int correctCount, int  incorrectCount){
+            score -= incorrectCount*10;
+            if(score < 0) score = 0;
+            return score;
 	}
+        @Override
+        public int getScore(){
+            return this.score;
+        }
 }

@@ -35,4 +35,8 @@ public class BonusScore implements GameScore{
         if(score < 0) score = 0;
 		return score;
 	}
+        @Override
+        public int getScore(){
+            return this.score;
+        }
 }
