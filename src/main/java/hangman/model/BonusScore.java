@@ -15,8 +15,11 @@
 
 package hangman.model;
 
+import com.google.inject.Inject;
+
 public class BonusScore implements GameScore{
-	private int score;		
+	private int score;
+        @Inject
 	public BonusScore(){
 		score = 0;	
 	}

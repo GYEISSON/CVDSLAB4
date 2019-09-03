@@ -5,6 +5,7 @@
  */
 package hangman.model.dictionary;
 
+import com.google.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class FrenchDictionaryDataSource extends HangmanDictionary {
         "TRÈS",
         "VOILÀ"
     };
-
+    @Inject
     public FrenchDictionaryDataSource() {
         setAvalariableWords(Arrays.asList(words));
     }

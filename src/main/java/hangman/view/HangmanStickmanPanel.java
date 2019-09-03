@@ -11,6 +11,7 @@
 ****************************************************************/ 
 package hangman.view;
 
+import com.google.inject.Inject;
 import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 
 public class HangmanStickmanPanel extends HangmanPanel {
     int incorrectCount;
-    
+    @Inject
     public HangmanStickmanPanel(){
         incorrectCount = 0;
     }
