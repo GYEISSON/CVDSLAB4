@@ -21,7 +21,7 @@ public class BonusScore implements GameScore{
 	private int score;
         @Inject
 	public BonusScore(){
-		score = 0;	
+            score = 0;	
 	}
 
 	/**
@@ -33,9 +33,9 @@ public class BonusScore implements GameScore{
 	*@throws 
 	*/
 	public int calculateScore(int correctCount, int  incorrectCount){
-		score -= incorrectCount*5;
-        score += correctCount*10;
-        if(score < 0) score = 0;
-		return score;
+            score -= incorrectCount*5;
+            score += correctCount*10;
+            if(score < 0){ score = 0;}
+            return score;
 	}
 }
